@@ -30,16 +30,7 @@ hardware:
 
 ## Documentation
 
-| File | Topic |
-|------|-------|
-| [`compaq-copy-protection.md`](compaq-copy-protection.md) | Two-tier Compaq hardware identification check (`CPQZ.EXE`), BIOS diagnostics (`CPQY.COM`, `OEMDMI.EXE`), multilingual error display (`CPQX.EXE`), and bypass methods |
-| [`serial-number.md`](serial-number.md) | Serial number validation in `QR.EXE`, BOMID.TXT/IMAGES.TAB data formats, UIA structure, model matching logic, six binary patches to bypass all checks, and full ISO rebuild instructions |
-| [`password-decode.md`](password-decode.md) | ZIP password encoding scheme in `QROVL.EXE` (XOR + reversal + prefix), SCP script format, PKUNZIP command construction, and the decoded password (`SMDCONSUMER`) |
-| [`uiabomwr.md`](uiabomwr.md) | `UIABOMWR.EXE` factory tool analysis: DIET compression, disk geometry detection, UIA sector format, INT 13h I/O, and the read-modify-write flow |
-| [`bootsect-contents.md`](bootsect-contents.md) | Complete annotated file listing of the `BOOTSECT.BIN` boot floppy image, including all DOS utilities, Compaq drivers, and DataNet Systems batch tools |
-
-Each document includes relevant disassembly excerpts and faithful C
-translations of the original 16-bit DOS executables.
+See the [Wiki](https://github.com/Tatsh/cpq4800/wiki).
 
 ## Tools
 
@@ -53,7 +44,7 @@ an original ISO, it:
 5. Comments out `CPQZ.EXE` in `CPQR.BAT` to skip the hardware check
 6. Rebuilds the ISO with correct El Torito floppy-emulation boot
 
-```
+```shell
 python3 patch-iso.py "Compaq Presario 4800_WAN05921Q8.bak.iso" -o patched.iso
 ```
 
@@ -74,11 +65,11 @@ Requirements: `deark`, `upx`, `mtools` (`mcopy`/`mdel`/`mattrib`), `mkisofs`,
 
 ## ISO Details
 
-| Field | Value |
-|-------|-------|
-| Volume ID | `WAN05921Q8` |
-| Format | ISO 9660:1999 (level 4), El Torito |
-| Boot media | 1.44 MB floppy emulation (`BOOTSECT.BIN`) |
-| Supported models | Presario 4808, Presario 4816 |
-| OS | Windows 95 OEM |
-| Archive | [Internet Archive](https://archive.org/details/wan-05921-q-8) |
+| Field            | Value                                                         |
+| ---------------- | ------------------------------------------------------------- |
+| Volume ID        | `WAN05921Q8`                                                  |
+| Format           | ISO 9660:1999 (level 4), El Torito                            |
+| Boot media       | 1.44 MB floppy emulation (`BOOTSECT.BIN`)                     |
+| Supported models | Presario 4808, Presario 4816                                  |
+| OS               | Windows 95 OEM                                                |
+| Archive          | [Internet Archive](https://archive.org/details/wan-05921-q-8) |
